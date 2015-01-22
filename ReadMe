@@ -1,0 +1,5 @@
+Rewritten library of SST25VF064S flash memory for using  with Nordic's SDK projects for nrf51822 SoC.
+
+This is done on base of existing spi_master project of SDK 6.1.0.
+
+This was tested on nRF51822-EK.
