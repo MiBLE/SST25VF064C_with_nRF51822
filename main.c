@@ -35,7 +35,7 @@
  * Please make sure that only one instance of the SPI master is enabled in config file.
  */
 uint32_t result;
-char  str[13]="";
+char  str[13];
 
 /**@brief Function for error handling, which is called when an error has occurred. 
  *
@@ -47,7 +47,7 @@ void app_error_handler(uint32_t error_code, uint32_t line_num, const uint8_t * p
 {
     for (;;)
     {
-        //No implementation needed.
+			//No implementation needed.
     }
 }
 
@@ -78,22 +78,23 @@ int main(void)
 					WRSR(0x80);
 					Chip_Erase_Operation();
           //Set buffers and start data transfer.
-					uint8_t text[13] ={0x48,0x65,0x6c,0x6c,0x6f,0x20,0x77,0x6f,0x72,0x6c,0x64,0x21,'\0'};
+					uint8_t text[13] ={0x48,0x65,0x6c,0x6c,0x6f,0x20,0x77,0x6f,0x72,0x6c,0x64,0x21,0x00};
 					for (i=0;i<13;i++)
 					{
 						upper_128[i]=text[i];
 					}
-					Page_Program_Operation(0x100000);
+					Page_Program_Operation(0x000000);
 					for (i=0;i<128;i++)
 					{
 						upper_128[i]=0x00;
 					}
-					Read_Cont(0x100000,13);
+					Read_Cont(0x000000,13);
 					for (i=0;i<13;i++)
 					{
 						str[i]=upper_128[i];
 					}
-					if(strcmp(str,"Hello world!"))
+					char str1[]="Hello world!";
+					if(!strcmp(str,str1))
 					{
 						nrf_gpio_pin_set(LED_1);
 					}
