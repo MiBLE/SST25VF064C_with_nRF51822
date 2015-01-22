@@ -4,5 +4,5 @@ This is done on base of existing spi_master project of SDK 6.1.0.
 
 This was tested on nRF51822-EK.
 
-To fast start copy to "citozin_board.h" to ...\Keil\ARM\Device\Nordic\nrf51822\Include\boards 
-and  boards.h to ..\Keil\ARM\Device\Nordic\nrf51822\Include\.
+To fast start copy "citozin_board.h" to ...\Keil\ARM\Device\Nordic\nrf51822\Include\boards 
+and  "boards.h" to ..\Keil\ARM\Device\Nordic\nrf51822\Include\.
